@@ -9,7 +9,7 @@ type SectionNavItem = {
 };
 
 const SECTION_NAV_ITEMS: SectionNavItem[] = [
-  { label: 'How it works', sectionId: 'vivi-workflow' },
+  { label: 'How it works', sectionId: 'visl-workflow-showcase' },
   { label: 'Explore', sectionId: 'vivi-openart-mount' },
   { label: 'Features', sectionId: 'why-vivi' },
   { label: 'Benefits', sectionId: 'vivi-benefits' },

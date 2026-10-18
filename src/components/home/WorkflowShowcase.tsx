@@ -860,7 +860,7 @@ export default function WorkflowShowcase() {
   };
 
   return (
-    <section className="wf-section" ref={sectionRef} aria-label="How Visl works">
+    <section id="visl-workflow-showcase" className="wf-section" ref={sectionRef} aria-label="How Visl works">
       <div className="wf-pin">
         <header className="wf-topline">
           <a className="wf-brand" href="/" aria-label="Visl home">Visl<span>.</span></a>
