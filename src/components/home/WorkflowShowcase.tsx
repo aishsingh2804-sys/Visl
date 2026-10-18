@@ -615,6 +615,14 @@ export default function WorkflowShowcase() {
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [active, setActive] = useState(0);
 
+  // Keep dynamic inline styles explicitly typed with React's CSSProperties.
+  const activeStageScaleStyle: CSSProperties = {
+    transform: `scaleX(${active / (stages.length - 1)})`,
+  };
+  const workflowProgressScaleStyle: CSSProperties = {
+    transform: `scaleX(${(active + 1) / stages.length})`,
+  };
+
   useLayoutEffect(() => {
     const section = sectionRef.current;
     const track = trackRef.current;
@@ -789,10 +797,10 @@ export default function WorkflowShowcase() {
           const orbits = panel.querySelectorAll<HTMLElement>(".wf-bulb-orbit");
 
           if (bulbScene && bulb && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            gsap.fromTo(bulbScene, { autoAlpha: 0, scale: 0.88, y: 24 }, {
-              autoAlpha: 1, scale: 1, y: 0, duration: 1.15, ease: "power3.out",
-              scrollTrigger: { trigger: panel, containerAnimation: horizontal as unknown as gsap.core.Tween, start: "left 88%", toggleActions: "play none none reverse" }
-            });
+            // Keep the idea bulb visible from the moment the workflow appears.
+            // Only the title uses a scroll-triggered entrance; the bulb itself
+            // should never fade or scale in as the user scrolls.
+            gsap.set(bulbScene, { autoAlpha: 1, scale: 1, y: 0 });
             gsap.to(bulb, { y: -8, rotate: 1.5, duration: 3.4, ease: "sine.inOut", repeat: -1, yoyo: true });
             if (halo) gsap.to(halo, { scale: 1.13, autoAlpha: 0.88, duration: 2.4, ease: "sine.inOut", repeat: -1, yoyo: true });
             if (orbits.length) gsap.to(orbits, { rotation: (i) => i ? -8 : 8, scale: (i) => i ? 1.025 : 1.04, duration: (i) => i ? 7 : 5.5, ease: "sine.inOut", stagger: 0.25, repeat: -1, yoyo: true });
@@ -862,7 +870,7 @@ export default function WorkflowShowcase() {
         <div className="wf-track-viewport">
           <nav className="wf-mobile-timeline" aria-label="Jump to workflow stage">
             <div className="wf-mobile-timeline-line" aria-hidden="true">
-              <span style={{ transform: `scaleX(${active / (stages.length - 1)})` }} />
+              <span style={activeStageScaleStyle} />
             </div>
             {stages.map((stage, index) => (
               <button
@@ -921,7 +929,7 @@ export default function WorkflowShowcase() {
               <span className="wf-nav-num">{stage.number}</span><span>{stage.name}</span>
             </button>)}
           </div>
-          <div className="wf-progress-track"><span style={{ transform: `scaleX(${(active + 1) / stages.length})` }} /></div>
+          <div className="wf-progress-track"><span style={workflowProgressScaleStyle} /></div>
         </footer>
       </div>
     </section>
