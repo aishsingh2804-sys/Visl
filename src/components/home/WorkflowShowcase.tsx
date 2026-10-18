@@ -668,7 +668,7 @@ export default function WorkflowShowcase() {
         if (settingCards.length) {
           if (panelIndex === 1) {
             gsap.fromTo(settingCards,
-              { x: -45, y: 28, rotate: (i) => i % 2 ? 7 : -7, scale: 0.82, autoAlpha: 0 },
+              { x: -40.5, y: 25, rotate: (i) => i % 2 ? 7 : -7, scale: 0.82, autoAlpha: 0 },
               { x: 0, y: 0, rotate: 0, scale: 1, autoAlpha: 1, duration: 0.8, stagger: 0.1, ease: "back.out(1.35)",
                 scrollTrigger: { trigger: panel, containerAnimation: horizontal as unknown as gsap.core.Tween, start: "left 82%", toggleActions: "play none none reverse" } }
             );
@@ -677,8 +677,8 @@ export default function WorkflowShowcase() {
             const fallingIcons = panel.querySelectorAll<HTMLElement>(".wf-setup-falling-icons span");
             if (fallingIcons.length) {
               gsap.fromTo(fallingIcons,
-                { y: (i) => -150 - (i % 3) * 48, x: (i) => (i % 2 ? 55 : -55), rotate: (i) => i % 2 ? 110 : -95, scale: 0.45, autoAlpha: 0 },
-                { y: (i) => [92, 148, 205, 260, 318, 365, 420][i], x: (i) => [0, -12, 13, -7, 10, -8, 0][i], rotate: (i) => [12, -16, 8, -12, 18, -8, 4][i], scale: 1, autoAlpha: 0.8, ease: "none",
+                { y: (i) => -135 - (i % 3) * 43, x: (i) => (i % 2 ? 50 : -50), rotate: (i) => i % 2 ? 110 : -95, scale: 0.45, autoAlpha: 0 },
+                { y: (i) => [83, 133, 185, 234, 286, 329, 378][i], x: (i) => [0, -11, 12, -6, 9, -7, 0][i], rotate: (i) => [12, -16, 8, -12, 18, -8, 4][i], scale: 1, autoAlpha: 0.8, ease: "none",
                   scrollTrigger: { trigger: panel, containerAnimation: horizontal as unknown as gsap.core.Tween, start: "left 92%", end: "left 38%", scrub: 0.65 } }
               );
             }
@@ -692,7 +692,7 @@ export default function WorkflowShowcase() {
         }
         if (panelIndex === 1) {
           const setupVisual = panel.querySelector<HTMLElement>(".wf-setup-image");
-          if (setupVisual) gsap.fromTo(setupVisual, { x: 55, y: 35, scale: 0.92, autoAlpha: 0 }, {
+          if (setupVisual) gsap.fromTo(setupVisual, { x: 50, y: 31, scale: 0.92, autoAlpha: 0 }, {
             x: 0, y: 0, scale: 1, autoAlpha: 1, duration: 0.9, ease: "power3.out",
             scrollTrigger: { trigger: panel, containerAnimation: horizontal as unknown as gsap.core.Tween, start: "left 78%", toggleActions: "play none none reverse" }
           });
@@ -700,7 +700,7 @@ export default function WorkflowShowcase() {
         const interfaceCards = panel.querySelectorAll<HTMLElement>(".wf-script-ui, .wf-vibe-ui, .wf-publish-ui");
         if (interfaceCards.length) {
           gsap.fromTo(interfaceCards,
-            { y: 35, rotate: -3, scale: 0.94, autoAlpha: 0 },
+            { y: 31, rotate: -3, scale: 0.94, autoAlpha: 0 },
             { y: 0, rotate: 0, scale: 1, autoAlpha: 1, duration: 0.8, ease: "power3.out",
               scrollTrigger: { trigger: panel, containerAnimation: horizontal as unknown as gsap.core.Tween, start: "left 82%", toggleActions: "play none none reverse" } }
           );
@@ -767,7 +767,7 @@ export default function WorkflowShowcase() {
 
         if (accentText) {
           gsap.to(accentText, {
-            y: -3,
+            y: -2.7,
             duration: 1.5,
             ease: "sine.inOut",
             repeat: -1,
@@ -778,15 +778,15 @@ export default function WorkflowShowcase() {
         const swarm = panel.querySelectorAll<HTMLElement>(".wf-transition-swarm span");
         if (swarm.length) {
           gsap.fromTo(swarm,
-            { x: (i) => (i % 2 ? 90 : -90), y: (i) => (i % 3 - 1) * 75, rotate: (i) => i % 2 ? 170 : -170, scale: 0.3, autoAlpha: 0 },
+            { x: (i) => (i % 2 ? 81 : -81), y: (i) => (i % 3 - 1) * 68, rotate: (i) => i % 2 ? 170 : -170, scale: 0.3, autoAlpha: 0 },
             { x: 0, y: 0, rotate: 0, scale: 1, autoAlpha: 0.6, duration: 0.95, stagger: 0.045, ease: "power3.out",
               scrollTrigger: { trigger: panel, containerAnimation: horizontal as unknown as gsap.core.Tween, start: "left 90%", toggleActions: "play none none reverse" } }
           );
-          gsap.to(swarm, { y: (i) => (i % 2 ? -9 : 8), rotate: (i) => i % 2 ? 12 : -12, duration: 2.5, ease: "sine.inOut", stagger: 0.15, repeat: -1, yoyo: true });
+          gsap.to(swarm, { y: (i) => (i % 2 ? -8 : 7), rotate: (i) => i % 2 ? 12 : -12, duration: 2.5, ease: "sine.inOut", stagger: 0.15, repeat: -1, yoyo: true });
         }
         if (panelIndex === 0) {
           const chat = panel.querySelector<HTMLElement>(".wf-idea-chat-right");
-          if (chat) gsap.to(chat, { y: -8, rotate: 1.5, duration: 3.8, ease: "sine.inOut", repeat: -1, yoyo: true });
+          if (chat) gsap.to(chat, { y: -7, rotate: 1.5, duration: 3.8, ease: "sine.inOut", repeat: -1, yoyo: true });
 
           const bulbScene = panel.querySelector<HTMLElement>(".wf-idea-bulb-scene");
           const bulb = panel.querySelector<HTMLElement>(".wf-bulb-wrap");
@@ -801,24 +801,24 @@ export default function WorkflowShowcase() {
             // Only the title uses a scroll-triggered entrance; the bulb itself
             // should never fade or scale in as the user scrolls.
             gsap.set(bulbScene, { autoAlpha: 1, scale: 1, y: 0 });
-            gsap.to(bulb, { y: -8, rotate: 1.5, duration: 3.4, ease: "sine.inOut", repeat: -1, yoyo: true });
+            gsap.to(bulb, { y: -7, rotate: 1.5, duration: 3.4, ease: "sine.inOut", repeat: -1, yoyo: true });
             if (halo) gsap.to(halo, { scale: 1.13, autoAlpha: 0.88, duration: 2.4, ease: "sine.inOut", repeat: -1, yoyo: true });
             if (orbits.length) gsap.to(orbits, { rotation: (i) => i ? -8 : 8, scale: (i) => i ? 1.025 : 1.04, duration: (i) => i ? 7 : 5.5, ease: "sine.inOut", stagger: 0.25, repeat: -1, yoyo: true });
             if (icons.length) {
-              gsap.fromTo(icons, { autoAlpha: 0, scale: 0.45, y: 14, rotate: (i) => i % 2 ? -35 : 35 }, {
+              gsap.fromTo(icons, { autoAlpha: 0, scale: 0.45, y: 13, rotate: (i) => i % 2 ? -35 : 35 }, {
                 autoAlpha: 1, scale: 1, y: 0, rotate: 0, duration: 0.85, stagger: 0.08, ease: "back.out(1.7)",
                 scrollTrigger: { trigger: panel, containerAnimation: horizontal as unknown as gsap.core.Tween, start: "left 87%", toggleActions: "play none none reverse" }
               });
-              icons.forEach((icon, i) => gsap.to(icon, { y: i % 2 ? -12 : 10, x: i % 3 === 0 ? 5 : -4, rotate: i % 2 ? 10 : -9, duration: 2.7 + (i % 3) * 0.55, ease: "sine.inOut", repeat: -1, yoyo: true, delay: i * 0.12 }));
+              icons.forEach((icon, i) => gsap.to(icon, { y: i % 2 ? -11 : 9, x: i % 3 === 0 ? 4.5 : -3.5, rotate: i % 2 ? 10 : -9, duration: 2.7 + (i % 3) * 0.55, ease: "sine.inOut", repeat: -1, yoyo: true, delay: i * 0.12 }));
             }
             if (prompts.length) {
-              gsap.fromTo(prompts, { autoAlpha: 0, y: 14, scale: 0.92 }, {
+              gsap.fromTo(prompts, { autoAlpha: 0, y: 13, scale: 0.92 }, {
                 autoAlpha: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.16, ease: "power2.out",
                 scrollTrigger: { trigger: panel, containerAnimation: horizontal as unknown as gsap.core.Tween, start: "left 84%", toggleActions: "play none none reverse" }
               });
-              prompts.forEach((prompt, i) => gsap.to(prompt, { y: i === 1 ? -7 : 6, rotate: i === 1 ? -1.5 : 1.2, duration: 3.2 + i * 0.45, ease: "sine.inOut", repeat: -1, yoyo: true, delay: i * 0.2 }));
+              prompts.forEach((prompt, i) => gsap.to(prompt, { y: i === 1 ? -6 : 5, rotate: i === 1 ? -1.5 : 1.2, duration: 3.2 + i * 0.45, ease: "sine.inOut", repeat: -1, yoyo: true, delay: i * 0.2 }));
             }
-            if (particles.length) gsap.to(particles, { y: (i) => i % 2 ? -19 : 15, x: (i) => i % 2 ? 12 : -10, scale: (i) => i % 2 ? 1.3 : 0.75, autoAlpha: (i) => i % 2 ? 0.9 : 0.35, duration: (i) => 2.3 + i * 0.45, ease: "sine.inOut", stagger: 0.25, repeat: -1, yoyo: true });
+            if (particles.length) gsap.to(particles, { y: (i) => i % 2 ? -17 : 13, x: (i) => i % 2 ? 11 : -9, scale: (i) => i % 2 ? 1.3 : 0.75, autoAlpha: (i) => i % 2 ? 0.9 : 0.35, duration: (i) => 2.3 + i * 0.45, ease: "sine.inOut", stagger: 0.25, repeat: -1, yoyo: true });
 
             // QuickTo keeps cursor-reactive parallax cheap: no tween per pointer event.
             const quickX = gsap.quickTo(bulbScene, "x", { duration: 0.65, ease: "power3.out" });
@@ -827,8 +827,8 @@ export default function WorkflowShowcase() {
               const bounds = panel.getBoundingClientRect();
               const nx = (event.clientX - bounds.left) / bounds.width - 0.5;
               const ny = (event.clientY - bounds.top) / bounds.height - 0.5;
-              quickX(nx * 10);
-              quickY(ny * 8);
+              quickX(nx * 9);
+              quickY(ny * 7);
             };
             const onPointerLeave = () => { quickX(0); quickY(0); };
             panel.addEventListener("pointermove", onPointerMove, { passive: true });
