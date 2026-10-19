@@ -655,10 +655,9 @@ export default function WorkflowShowcase() {
       // A short end hold gives the final stage a moment to be read without
       // creating a long stretch where scrolling appears to do nothing.
       const travelDuration = 1;
-      const outroHold = 0.1;
-      const totalTimelineDuration = travelDuration + outroHold;
-      // Scroll distance per pixel of horizontal travel. Higher = slower / easier to read.
-      const scrollSlowdown = 1.8;
+const outroHold = 0.035;
+const totalTimelineDuration = travelDuration + outroHold;
+const scrollSlowdown = 1.8;
 
       const horizontal = gsap.timeline({
         scrollTrigger: {
@@ -875,8 +874,12 @@ export default function WorkflowShowcase() {
     // Stage navigation follows the immediate horizontal travel. Stage 6
     // lands at the end of that travel, leaving the short end hold for reading.
     const travelDuration = 1;
-    const totalTimelineDuration = travelDuration + 0.1;
-    const progress = ((index / (stages.length - 1)) * travelDuration) / totalTimelineDuration;
+const outroHold = 0.035;
+const totalTimelineDuration = travelDuration + outroHold;
+
+const progress =
+  ((index / (stages.length - 1)) * travelDuration) /
+  totalTimelineDuration;
     const target = trigger.start + (trigger.end - trigger.start) * progress;
 
     jumpTweenRef.current?.kill();

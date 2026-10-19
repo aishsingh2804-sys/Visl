@@ -3731,29 +3731,68 @@ html, body { overflow-x: clip; }
     transition: color .45s ease, font-size .45s cubic-bezier(.22, .8, .24, 1) !important;
   }
 }
-
-
-/* MOBILE: Fill the available viewport and remove bottom whitespace */
-
-/* MOBILE: Fill the available viewport and remove bottom whitespace */
+/* =====================================================================
+   MOBILE: fill the full viewport (no empty strip at the bottom) and
+   push the numbered timeline further down.
+   Append at the very END of WorkflowShowcase.css.
+   ===================================================================== */
 @media (max-width: 760px) {
+
+  /* Tune these two numbers:
+     --wf-nav-offset : height of your fixed site navbar (already defined earlier)
+     --wf-tl-extra   : how much further down the timeline (and content) moves */
   .wf-section {
-    min-height: calc(100vh - 155px);
-    min-height: calc(100dvh - 155px);
-    display: flex;
-    flex-direction: column;
+    --wf-tl-extra: 26px;
+
+    /* undo the earlier "calc(100dvh - 155px)" shrink */
+    min-height: 0 !important;
+    height: auto !important;
+    display: block !important;
   }
 
-  .wf-pin {
-    flex: 1 0 auto;
-    height: auto;
-    min-height: calc(100dvh - 155px);
-    box-sizing: border-box;
+  /* Pinned stage = the full visible viewport (vh fallback, then dvh) */
+  .wf-section .wf-pin {
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    flex: none !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
 
-  .wf-track-viewport {
-    flex: 1 1 auto;
-    min-height: 0;
+  /* Track + panels stretch to fill whatever height the pin has */
+  .wf-section .wf-track-viewport {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    align-items: stretch !important;
+  }
+  .wf-section .wf-track {
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+  .wf-section .wf-panel {
+    height: 100% !important;
+    min-height: 0 !important;
+    /* content pushed down by the same amount as the timeline;
+       bottom padding scales with the real viewport height */
+    padding-top: calc(var(--wf-nav-offset) + 62px + var(--wf-tl-h) + var(--wf-tl-shift) + var(--wf-tl-extra)) !important;
+    padding-bottom: clamp(60px, 11dvh, 100px) !important;
+  }
+
+  /* Timeline (1–6) moves lower */
+  .wf-section .wf-mobile-timeline {
+    top: calc(var(--wf-nav-offset) - 58px + 8px + var(--wf-tl-shift) + 58px + var(--wf-tl-extra)) !important;
   }
 }
 
+/* Short phones: slightly tighter */
+@media (max-width: 760px) and (max-height: 700px) {
+  .wf-section { --wf-tl-extra: 14px; }
+  .wf-section .wf-panel {
+    padding-top: calc(var(--wf-nav-offset) + 54px + var(--wf-tl-h) + var(--wf-tl-shift) + var(--wf-tl-extra)) !important;
+    padding-bottom: 64px !important;
+  }
+}
