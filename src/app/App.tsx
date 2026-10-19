@@ -26,6 +26,7 @@ import { Footer } from '../components/Footer';
 import ComingSoon from "../pages/ComingSoon";
 import { AcceptableUsePage } from '../pages/AcceptableUsePage';
 import { CookiePolicyPage } from '../pages/CookiePolicyPage';
+import { ChildPolicyPage } from '../pages/ChildPolicyPage';
 
 const titles: Record<string, string> = {
   [ROUTES.HOME]: 'Visl — AI Video Storytelling',
@@ -50,6 +51,7 @@ const titles: Record<string, string> = {
   [ROUTES.SIGNUP]: 'Visl — Sign Up',
   [ROUTES.COMING_SOON]: 'Visl — Coming Soon',
   [ROUTES.COOKIES]: 'Visl — Cookie Policy',
+  [ROUTES.CHILD_SAFETY]: 'Visl — Child Safety Policy',
 };
 
 function MetaTitle(){const {pathname}=useLocation(); const title=titles[pathname]??'Visl AI'; document.title=title; const description='Visl AI creates long-form videos with consistent characters and complete story arcs.'; let meta=document.querySelector('meta[name=description]') as HTMLMetaElement|null; if(!meta){meta=document.createElement('meta');meta.name='description';document.head.appendChild(meta);} meta.content=description; let canonical=document.querySelector('link[rel=canonical]') as HTMLLinkElement|null; if(!canonical){canonical=document.createElement('link');canonical.rel='canonical';document.head.appendChild(canonical);} canonical.href=window.location.origin+pathname; return null;}
@@ -180,6 +182,8 @@ export function AppShell() {
           element={<RefundPage />}
         />
 <Route path={ROUTES.ACC} element={<AcceptableUsePage />} />
+
+<Route path={ROUTES.CHILD_SAFETY} element={<ChildPolicyPage />} />
         {/* AUTH */}
         <Route
           path={ROUTES.LOGIN}

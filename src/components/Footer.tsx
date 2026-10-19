@@ -85,6 +85,10 @@ export function Footer() {
           <Link to={ROUTES.COOKIES} onClick={scrollToTop}>
             Cookie policy
           </Link>
+
+          <Link to={ROUTES.CHILD_SAFETY} onClick={scrollToTop}>
+            Child safety policy
+          </Link>
         </div>
       </div>
 
