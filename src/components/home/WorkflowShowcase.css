@@ -3612,3 +3612,122 @@
 @media (max-width: 380px) {
   .wf-section .wf-track-viewport::before { font-size: 19px !important; }
 }
+
+/* =====================================================================
+   DESKTOP ONLY: slightly smaller bottom stage navigation
+   (mobile hides this bar, so nothing changes there)
+   ===================================================================== */
+@media (min-width: 761px) {
+  .wf-section .wf-stage-nav { gap: clamp(10px, 2vw, 28px); }
+  .wf-section .wf-stage-nav .wf-stage-button {
+    font-size: 11.7px !important;
+    padding: 8.1px 12.6px !important;
+    gap: 6.3px !important;
+  }
+  .wf-section .wf-stage-nav .wf-stage-button .wf-nav-num {
+    font-size: 10.2px !important;
+  }
+  .wf-section .wf-stage-nav .wf-stage-button span:last-child {
+    font-size: 11.7px !important;
+  }
+  .wf-section .wf-bottomline { min-height: 57.6px; }
+}
+
+/* =====================================================================
+   DESKTOP ONLY: tighter bottom navigation + panel anchored to it.
+   Removes the empty band around the stage nav so the content above
+   gets more room (spare height now goes to the top, not the bottom).
+   ===================================================================== */
+@media (min-width: 761px) {
+  .wf-section .wf-bottomline { min-height: 44px; }
+  .wf-section .wf-stage-nav .wf-stage-button { padding: 5.4px 12.6px !important; }
+  /* Sit the panel directly above the nav instead of floating in the middle. */
+  .wf-section .wf-track-viewport { align-items: flex-end; }
+}
+
+/* DESKTOP ONLY: slimmer navigation strip */
+@media (min-width: 761px) {
+  .wf-section .wf-bottomline { min-height: 34px; height: auto; }
+  .wf-section .wf-stage-nav .wf-stage-button { padding: 3.6px 12px !important; }
+}
+
+/* =====================================================================
+   NAV STRIP: compact, and immune to global footer/div styles from the site.
+   (The strip is now a plain div; these resets also win over any generic rules.)
+   ===================================================================== */
+@media (min-width: 761px) {
+  .wf-section .wf-pin .wf-bottomline {
+    height: 36px !important;
+    min-height: 0 !important;
+    max-height: 36px;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    flex: 0 0 36px;
+    background: transparent;
+    align-items: center;
+  }
+  .wf-section .wf-pin .wf-stage-nav { margin: 0; padding: 0; height: 100%; align-items: center; }
+  .wf-section .wf-pin .wf-stage-nav .wf-stage-button { padding-top: 3.6px !important; padding-bottom: 3.6px !important; margin: 0; }
+}
+
+/* =====================================================================
+   NO HORIZONTAL PAGE SCROLLBAR
+   The stage panels are 100vw wide (100vw includes the vertical scrollbar),
+   which can make the page ~17px wider than the window. `clip` hides that
+   overflow without creating a scroll container, so pinning/sticky still work.
+   ===================================================================== */
+html, body { overflow-x: clip; }
+
+/* =====================================================================
+   REVISION: restore original panel/bulb position, slightly taller nav
+   strip, and a bold text-only "current stage" indicator (no pill).
+   ===================================================================== */
+@media (min-width: 761px) {
+  /* Panels are centred again, exactly like the original layout (puts the idea bulb back up). */
+  .wf-section .wf-track-viewport { align-items: center; }
+
+  /* Nav strip: a little taller than before (36px -> 44px). */
+  .wf-section .wf-pin .wf-bottomline {
+    height: 44px !important;
+    max-height: 44px;
+    flex: 0 0 44px;
+  }
+
+  /* Current stage: no purple pill, just a bigger, bolder name. */
+  .wf-section .wf-pin .wf-stage-nav .wf-stage-button.is-active {
+    background: none !important;
+    box-shadow: none !important;
+  }
+  .wf-section .wf-pin .wf-stage-nav .wf-stage-button.is-active span:last-child {
+    color: #142f56 !important;
+    font-size: 16.2px !important;
+    font-weight: 800 !important;
+    letter-spacing: -.01em;
+  }
+  .wf-section .wf-pin .wf-stage-nav .wf-stage-button.is-active .wf-nav-num {
+    color: #3564ee !important;
+    font-size: 11.7px !important;
+    font-weight: 700 !important;
+  }
+}
+
+/* =====================================================================
+   REVISION: idea bulb vertically centred on the left; smoother nav states
+   ===================================================================== */
+@media (min-width: 761px) {
+  /* GSAP replaces this element's transform at runtime (it drops the old translateY(-50%)),
+     so centre it with `top` alone: top = 50% - half of its own height. */
+  .wf-panel-1 .wf-idea-bulb-scene {
+    top: calc(50% - min(229.5px, 36%));
+    transform: none;
+  }
+
+  /* Calm hand-over between stages in the nav: colour and size ease instead of snapping. */
+  .wf-section .wf-pin .wf-stage-nav .wf-stage-button {
+    transition: color .45s ease, opacity .45s ease !important;
+  }
+  .wf-section .wf-pin .wf-stage-nav .wf-stage-button span {
+    transition: color .45s ease, font-size .45s cubic-bezier(.22, .8, .24, 1) !important;
+  }
+}

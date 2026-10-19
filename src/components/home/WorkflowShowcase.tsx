@@ -614,6 +614,25 @@ export default function WorkflowShowcase() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [active, setActive] = useState(0);
+  // Holds the eased "jump to stage" scroll so user input can interrupt it.
+  const jumpTweenRef = useRef<gsap.core.Tween | null>(null);
+
+  // Any manual scrolling (wheel / touch / keyboard) cancels an in-progress stage jump.
+  useEffect(() => {
+    const stopJump = () => {
+      jumpTweenRef.current?.kill();
+      jumpTweenRef.current = null;
+    };
+    window.addEventListener("wheel", stopJump, { passive: true });
+    window.addEventListener("touchstart", stopJump, { passive: true });
+    window.addEventListener("keydown", stopJump);
+    return () => {
+      window.removeEventListener("wheel", stopJump);
+      window.removeEventListener("touchstart", stopJump);
+      window.removeEventListener("keydown", stopJump);
+      stopJump();
+    };
+  }, []);
 
   // Keep dynamic inline styles explicitly typed with React's CSSProperties.
   const activeStageScaleStyle: CSSProperties = {
@@ -639,7 +658,7 @@ export default function WorkflowShowcase() {
       const outroHold = 0.1;
       const totalTimelineDuration = travelDuration + outroHold;
       // Scroll distance per pixel of horizontal travel. Higher = slower / easier to read.
-      const scrollSlowdown = 4.9;
+      const scrollSlowdown = 1.8;
 
       const horizontal = gsap.timeline({
         scrollTrigger: {
@@ -858,7 +877,30 @@ export default function WorkflowShowcase() {
     const travelDuration = 1;
     const totalTimelineDuration = travelDuration + 0.1;
     const progress = ((index / (stages.length - 1)) * travelDuration) / totalTimelineDuration;
-    window.scrollTo({ top: trigger.start + (trigger.end - trigger.start) * progress, behavior: "smooth" });
+    const target = trigger.start + (trigger.end - trigger.start) * progress;
+
+    jumpTweenRef.current?.kill();
+    jumpTweenRef.current = null;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.scrollTo({ top: target, left: 0, behavior: "instant" as unknown as ScrollBehavior });
+      return;
+    }
+
+    const startY = window.scrollY;
+    const delta = Math.abs(target - startY);
+    if (delta < 2) return;
+
+    // Eased, distance-aware glide instead of the browser's fast native smooth scroll,
+    // so the panels slide across calmly and every stage stays readable on the way.
+    const proxy = { y: startY };
+    jumpTweenRef.current = gsap.to(proxy, {
+      y: target,
+      duration: gsap.utils.clamp(1.2, 2.8, 0.8 + delta / 2200),
+      ease: "power3.inOut",
+      onUpdate: () => window.scrollTo({ top: proxy.y, left: 0, behavior: "instant" as unknown as ScrollBehavior }),
+      onComplete: () => { jumpTweenRef.current = null; },
+    });
   };
 
   return (
@@ -923,21 +965,21 @@ export default function WorkflowShowcase() {
                     : index === 2
                       ? <>Visl automatically writes your screenplay—<br />review and tweak scenes only if you want to.</>
                       : stage.description}</p>
-                  <span className="wf-small-note">SCROLL TO MAKE IT REAL <span>↓</span></span>
+                  <span className="wf-small-note">SCROLL TO EXPLORE <span>↓</span></span>
                 </div>
                 <span className="wf-panel-index">{stage.number} — 06</span>
               </article>
             ))}
           </div>
         </div>
-        <footer className="wf-bottomline">
+        <div className="wf-bottomline">
           <div className="wf-stage-nav" aria-label="Workflow stages">
             {stages.map((stage, index) => <button key={stage.number} type="button" className={`wf-stage-button ${active === index ? "is-active" : ""} ${active > index ? "is-past" : ""}`} onClick={() => jumpTo(index)} aria-current={active === index ? "step" : undefined}>
               <span className="wf-nav-num">{stage.number}</span><span>{stage.name}</span>
             </button>)}
           </div>
           <div className="wf-progress-track"><span style={workflowProgressScaleStyle} /></div>
-        </footer>
+        </div>
       </div>
     </section>
   );
