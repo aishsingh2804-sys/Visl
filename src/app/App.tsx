@@ -25,6 +25,7 @@ import { SignupPage } from '../pages/SignupPage';
 import { Footer } from '../components/Footer';
 import ComingSoon from "../pages/ComingSoon";
 import { AcceptableUsePage } from '../pages/AcceptableUsePage';
+import { CookiePolicyPage } from '../pages/CookiePolicyPage';
 
 const titles: Record<string, string> = {
   [ROUTES.HOME]: 'Visl — AI Video Storytelling',
@@ -48,6 +49,7 @@ const titles: Record<string, string> = {
   [ROUTES.LOGIN]: 'Visl — Log In',
   [ROUTES.SIGNUP]: 'Visl — Sign Up',
   [ROUTES.COMING_SOON]: 'Visl — Coming Soon',
+  [ROUTES.COOKIES]: 'Visl — Cookie Policy',
 };
 
 function MetaTitle(){const {pathname}=useLocation(); const title=titles[pathname]??'Visl AI'; document.title=title; const description='Visl AI creates long-form videos with consistent characters and complete story arcs.'; let meta=document.querySelector('meta[name=description]') as HTMLMetaElement|null; if(!meta){meta=document.createElement('meta');meta.name='description';document.head.appendChild(meta);} meta.content=description; let canonical=document.querySelector('link[rel=canonical]') as HTMLLinkElement|null; if(!canonical){canonical=document.createElement('link');canonical.rel='canonical';document.head.appendChild(canonical);} canonical.href=window.location.origin+pathname; return null;}
@@ -188,7 +190,7 @@ export function AppShell() {
           path={ROUTES.SIGNUP}
           element={<SignupPage />}
         />
-
+<Route path={ROUTES.COOKIES} element={<CookiePolicyPage />} />
         <Route
   path={ROUTES.COMING_SOON}
   element={<ComingSoon />}
