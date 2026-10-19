@@ -3847,3 +3847,29 @@ footer{border-top:1px solid var(--rule);padding:56px 40px 36px;max-width:1200px;
   .legal-clause{grid-template-columns:22px minmax(0,1fr);gap:6px}
   .legal-cont,.legal-sub{margin-left:0}
 }
+
+/* ── PRIVACY PAGE (extends the TERMS PAGE styles above) ── */
+.legal-em{font-style:italic;color:var(--text)}
+.legal-list{margin:4px 0 14px 38px;padding-left:18px}
+.legal-list li{margin-bottom:7px;overflow-wrap:anywhere}
+.legal-list li::marker{color:var(--accent)}
+.legal-list-flush{margin-left:0}
+.legal-sub .legal-clause{grid-template-columns:40px minmax(0,1fr)}
+.legal-sub .legal-list{margin-left:40px}
+.legal-callout p+p{margin-top:6px}
+
+/* tables */
+.legal-table-wrap{overflow-x:auto;margin:16px 0 22px;border:1px solid #DCE7F2;border-radius:10px;background:#fff;box-shadow:0 2px 8px rgba(18,42,74,.04)}
+.legal-table{width:100%;border-collapse:collapse;min-width:560px}
+.legal-table th{background:#E5EEF9;color:var(--text);font-size:12px;font-weight:700;letter-spacing:.03em;text-align:left;padding:11px 14px;border-bottom:1px solid #D2DFEE}
+.legal-table td{padding:11px 14px;font-size:13px;line-height:1.6;color:var(--text);text-align:left;vertical-align:top;border-bottom:1px solid #E8EFF7;overflow-wrap:anywhere}
+.legal-table tbody tr:last-child td{border-bottom:none}
+.legal-table tbody tr:nth-child(even) td{background:#F7FAFD}
+.legal-table tbody tr:hover td{background:#F1F6FB}
+.legal-table-num th:first-child,.legal-table-num td:first-child{width:44px;text-align:center;color:var(--muted);font-weight:600}
+.legal-table:not(.legal-table-num) td:first-child{font-weight:600}
+
+@media (max-width:600px){
+  .legal-list,.legal-sub .legal-list{margin-left:0}
+  .legal-sub .legal-clause{grid-template-columns:34px minmax(0,1fr)}
+}
