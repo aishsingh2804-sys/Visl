@@ -3539,3 +3539,19 @@
     padding-top: calc(var(--wf-nav-offset) + 54px + var(--wf-tl-h) + var(--wf-tl-shift)) !important;
   }
 }
+
+/* Smaller workflow subtitles on mobile to match the rest of the site.
+   In this component, subtitle copy uses .wf-description (not .wf-subtitle). */
+@media (max-width: 760px) {
+  .wf-section .wf-panel .wf-typography .wf-description {
+    font-size: 17px !important;
+    line-height: 1.4 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .wf-section .wf-panel .wf-typography .wf-description {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+  }
+}

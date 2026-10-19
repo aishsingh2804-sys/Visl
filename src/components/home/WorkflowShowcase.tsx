@@ -50,7 +50,7 @@ const stages: Stage[] = [
   {
     number: "01", name: "IDEA", kicker: "EVERYTHING STARTS SOMEWHERE",
     titleBefore: "Start With an", titleHighlight: "Idea", titleAfter: "",
-    description: "Share a link or brief story concept—VISL takes your prompt and handles the rest.",
+    description: "Share a link or brief story concept—Visl takes your prompt and handles the rest.",
   },
   {
     number: "02", name: "SETUP", kicker: "GIVE IT A WORLD",
@@ -59,23 +59,23 @@ const stages: Stage[] = [
   },
   {
     number: "03", name: "SCRIPT", kicker: "LET THE STORY TALK",
-    titleBefore: "VISL Scripts", titleHighlight: "Your Story", titleAfter: "",
-    description: "VISL automatically writes your screenplay—review and tweak scenes only if you want to.",
+    titleBefore: "Visl Writes Your", titleHighlight: "Script", titleAfter: "",
+    description: "Visl automatically writes your screenplay—review and tweak scenes only if you want to.",
   },
   {
     number: "04", name: "ASSETS", kicker: "MAKE IT REAL",
-    titleBefore: "VISL Generates", titleHighlight: "Assets", titleAfter: "",
-    description: "VISL automatically creates characters, locations, props, and unique voiceovers.",
+    titleBefore: "Visl Generates", titleHighlight: "Assets", titleAfter: "",
+    description: "Visl automatically creates characters, locations, props, and unique voiceovers.",
   },
   {
     number: "05", name: "VIBE EDIT", kicker: "THE FEELING IS EVERYTHING",
-    titleBefore: "", titleHighlight: "Fine-Tune", titleAfter: "Anything",
-    description: "Describe any adjustment in plain words to easily guide VISL in updating your assets.",
+    titleBefore: "", titleHighlight: "Vibe-Edit", titleAfter: "Anything",
+    description: "Describe any adjustment in plain words to easily edit clips by chatting.",
   },
   {
     number: "06", name: "PUBLISH", kicker: "AND THEN, THE WORLD",
-    titleBefore: "VISL Prepares", titleHighlight: "Your Release", titleAfter: "",
-    description: "VISL renders your complete masterpiece, ready for you to review and publish to the world.",
+    titleBefore: "Visl Prepares", titleHighlight: "Your Release", titleAfter: "",
+    description: "Visl renders your complete masterpiece, ready for you to review and publish to the world.",
   },
 ];
 
@@ -129,7 +129,7 @@ function TypewriterPrompt() {
         <button type="button" role="tab" aria-selected={mode === "script"} className={`wf-chat-tab ${mode === "script" ? "wf-chat-tab-active" : ""}`} onClick={() => { setMode("script"); setPaused(true); setUsed(false); setTyped(""); }}>▤ Use my own script</button>
       </div>
       <div className="wf-chat-prompt">
-        {mode === "prompt" ? <span>{typed}</span> : <textarea className="wf-chat-script-input" aria-label="Your script" placeholder="Paste your script here and let VISL bring it to life." />}
+        {mode === "prompt" ? <span>{typed}</span> : <textarea className="wf-chat-script-input" aria-label="Your script" placeholder="Paste your script here and let Visl bring it to life." />}
         {mode === "prompt" && <i className="wf-chat-cursor" aria-hidden="true" />}
       </div>
       <div className="wf-chat-bottom">
@@ -210,7 +210,7 @@ function ScriptEditorDemo() {
       <div className={`wf-script-ui ${isEditing ? "is-editing" : ""} ${isUpdated ? "has-script-edit" : ""} ${isSaving ? "is-saving" : ""} ${isSaved ? "is-saved" : ""}`} aria-label="Animated screenplay editor demo">
         <div className="wf-script-ui-top">
           <span className="wf-window-dots"><i /><i /><i /></span>
-          <b>VISL / SCRIPT EDITOR</b>
+          <b>Visl / SCRIPT EDITOR</b>
           <span className={`wf-script-status ${isSaved ? "is-saved" : isSaving ? "is-saving-status" : isEditing ? "is-editing-status" : ""}`}>
             <i /> {isSaved ? "SAVED" : isSaving ? "SAVING" : isEditing ? "EDITING" : "DRAFT"}
           </span>
@@ -330,7 +330,7 @@ function VibeEditDemo() {
         <figcaption>EDIT WITH WORDS, NOT MENUS</figcaption>
       </figure>
 
-      <div className="wf-vibe-chat" aria-label="Animated conversation with VISL">
+      <div className="wf-vibe-chat" aria-label="Animated conversation with Visl">
         <div className="wf-vibe-chat-head">
           <span className="wf-vibe-chat-mark">✦</span>
           <span><b>Visl</b><small>Editor is ready for your review.</small></span>
@@ -343,7 +343,7 @@ function VibeEditDemo() {
             {chatPhase === 1 && <span className="wf-vibe-typing-caret" />}
           </div>
           <div className={`wf-vibe-bot-message ${chatPhase === 0 ? "is-thinking" : "is-responding"}`}>
-            <small>VISL</small>
+            <small>Visl</small>
             {chatPhase === 0
               ? <span className="wf-vibe-thinking-dots"><i /><i /><i /></span>
               : <span>{botMessages[chatPhase]}</span>}
@@ -641,7 +641,7 @@ export default function WorkflowShowcase() {
 
       const horizontal = gsap.timeline({
         scrollTrigger: {
-          id: "visl-workflow-horizontal",
+          id: "Visl-workflow-horizontal",
           trigger: section,
           pin: true,
           start: "top top",
@@ -848,7 +848,7 @@ export default function WorkflowShowcase() {
   }, []);
 
   const jumpTo = (index: number) => {
-    const trigger = ScrollTrigger.getById("visl-workflow-horizontal");
+    const trigger = ScrollTrigger.getById("Visl-workflow-horizontal");
     if (!trigger) return;
 
     // Stage navigation follows the immediate horizontal travel. Stage 6
@@ -860,7 +860,7 @@ export default function WorkflowShowcase() {
   };
 
   return (
-    <section id="visl-workflow-showcase" className="wf-section" ref={sectionRef} aria-label="How Visl works">
+    <section id="Visl-workflow-showcase" className="wf-section" ref={sectionRef} aria-label="How Visl works">
       <div className="wf-pin">
         <header className="wf-topline">
           <a className="wf-brand" href="/" aria-label="Visl home">Visl<span>.</span></a>
@@ -915,7 +915,7 @@ export default function WorkflowShowcase() {
                       </span>
                     ))}
                   </h2>
-                  <p className="wf-description">{index === 0 ? <>Share a link or brief story concept—<br />VISL guides you through the rest.</> : stage.description}</p>
+                  <p className="wf-description">{index === 0 ? <>Share a link or brief story concept—<br />Visl guides you through the rest.</> : stage.description}</p>
                   <span className="wf-small-note">SCROLL TO MAKE IT REAL <span>↓</span></span>
                 </div>
                 <span className="wf-panel-index">{stage.number} — 06</span>
