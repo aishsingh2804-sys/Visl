@@ -3734,6 +3734,8 @@ html, body { overflow-x: clip; }
 
 
 /* MOBILE: Fill the available viewport and remove bottom whitespace */
+
+/* MOBILE: Fill the available viewport and remove bottom whitespace */
 @media (max-width: 760px) {
   .wf-section {
     min-height: calc(100vh - 155px);
@@ -3754,3 +3756,4 @@ html, body { overflow-x: clip; }
     min-height: 0;
   }
 }
+
