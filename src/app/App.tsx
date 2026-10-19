@@ -24,6 +24,7 @@ import { SignupPage } from '../pages/SignupPage';
 // import { Vivi25Banner } from '../components/Vivi25Banner';
 import { Footer } from '../components/Footer';
 import ComingSoon from "../pages/ComingSoon";
+import { AcceptableUsePage } from '../pages/AcceptableUsePage';
 
 const titles: Record<string, string> = {
   [ROUTES.HOME]: 'Visl — AI Video Storytelling',
@@ -43,7 +44,7 @@ const titles: Record<string, string> = {
   [ROUTES.CREDITS]: 'Visl — Credit Calculator',
   [ROUTES.TERMS]: 'Visl — Terms & Conditions',
   [ROUTES.REFUND]: 'Visl — Refund & Cancellation',
-
+  [ROUTES.ACC]: 'Visl — Acceptable Use Policy',
   [ROUTES.LOGIN]: 'Visl — Log In',
   [ROUTES.SIGNUP]: 'Visl — Sign Up',
   [ROUTES.COMING_SOON]: 'Visl — Coming Soon',
@@ -176,7 +177,7 @@ export function AppShell() {
           path={ROUTES.REFUND}
           element={<RefundPage />}
         />
-
+<Route path={ROUTES.ACC} element={<AcceptableUsePage />} />
         {/* AUTH */}
         <Route
           path={ROUTES.LOGIN}
