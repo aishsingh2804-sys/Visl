@@ -14,7 +14,7 @@ type SectionNavItem = {
 
 const SECTION_NAV_ITEMS: SectionNavItem[] = [
   { label: 'How it works', sectionId: 'Visl-workflow-showcase' },
-  { label: 'Explore', sectionId: 'vivi-openart-mount' },
+  { label: 'Explore', sectionId: 'visl-explore-mount' },
   { label: 'Features', sectionId: 'why-vivi' },
   { label: 'Benefits', sectionId: 'vivi-benefits' },
   { label: 'Pricing', sectionId: 'vivi-pricing' },
