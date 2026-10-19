@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ROUTES } from '../lib/routes';
 import '../styles/footer.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,6 +20,18 @@ export function Footer() {
 
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
+        if (sectionId === 'Visl-workflow-showcase') {
+          ScrollTrigger.refresh();
+          const trigger = ScrollTrigger.getById('Visl-workflow-horizontal');
+          if (trigger) {
+            window.scrollTo({
+              top: trigger.start,
+              behavior: 'smooth',
+            });
+            return;
+          }
+        }
+
         document.getElementById(sectionId)?.scrollIntoView({
           behavior: 'smooth',
           block: 'start',
@@ -48,8 +64,8 @@ export function Footer() {
           <h3>Product</h3>
 
           <Link
-            to={`${ROUTES.HOME}#vivi-workflow`}
-            onClick={() => scrollToHomeSection('vivi-workflow')}
+            to={`${ROUTES.HOME}#Visl-workflow-showcase`}
+            onClick={() => scrollToHomeSection('Visl-workflow-showcase')}
           >
             How it works
           </Link>
@@ -99,10 +115,6 @@ export function Footer() {
         </span>
 
         <div className="vivi-footer-socials">
-          {/* <a href="#" aria-label="YouTube">YouTube</a>
-          <a href="#" aria-label="Instagram">Instagram</a>
-          <a href="#" aria-label="TikTok">TikTok</a>
-          <a href="#" aria-label="X">X</a> */}
           <a href="https://www.linkedin.com/company/visl-ai/" aria-label="LinkedIn">LinkedIn</a>
         </div>
       </div>
