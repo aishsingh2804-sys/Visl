@@ -638,6 +638,8 @@ export default function WorkflowShowcase() {
       const travelDuration = 1;
       const outroHold = 0.1;
       const totalTimelineDuration = travelDuration + outroHold;
+      // Scroll distance per pixel of horizontal travel. Higher = slower / easier to read.
+      const scrollSlowdown = 4.9;
 
       const horizontal = gsap.timeline({
         scrollTrigger: {
@@ -645,7 +647,7 @@ export default function WorkflowShowcase() {
           trigger: section,
           pin: true,
           start: "top top",
-          end: () => `+=${distance() * totalTimelineDuration}`,
+          end: () => `+=${distance() * totalTimelineDuration * scrollSlowdown}`,
           scrub: 1.2,
           anticipatePin: 1,
           invalidateOnRefresh: true,
@@ -906,6 +908,7 @@ export default function WorkflowShowcase() {
                         {word}
                       </span>
                     ))}
+                    {index === 2 && <span className="wf-title-break" aria-hidden="true" />}
                     <span className={`wf-title-accent wf-accent-${index + 1}`}>
                       <span className="wf-title-accent-text">{stage.titleHighlight}</span>
                     </span>
@@ -915,7 +918,11 @@ export default function WorkflowShowcase() {
                       </span>
                     ))}
                   </h2>
-                  <p className="wf-description">{index === 0 ? <>Share a link or brief story concept—<br />Visl guides you through the rest.</> : stage.description}</p>
+                  <p className="wf-description">{index === 0
+                    ? <>Share a link or brief story concept—<br />Visl guides you through the rest.</>
+                    : index === 2
+                      ? <>Visl automatically writes your screenplay—<br />review and tweak scenes only if you want to.</>
+                      : stage.description}</p>
                   <span className="wf-small-note">SCROLL TO MAKE IT REAL <span>↓</span></span>
                 </div>
                 <span className="wf-panel-index">{stage.number} — 06</span>
