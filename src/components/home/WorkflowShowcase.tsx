@@ -861,10 +861,50 @@ const scrollSlowdown = 1.8;
         }
       });
     }, section);
+    
+    // Recalculate the pinned section when mobile browser bars
+    // expand or collapse and materially change the viewport height.
+    let lastViewportHeight =
+      window.visualViewport?.height ?? window.innerHeight;
+
+    let viewportRefreshTimer: number | undefined;
+
+    const handleViewportResize = () => {
+      if (!window.matchMedia("(max-width: 760px)").matches) return;
+
+      const currentHeight =
+        window.visualViewport?.height ?? window.innerHeight;
+
+      // Ignore tiny changes during browser toolbar animation.
+      if (Math.abs(currentHeight - lastViewportHeight) < 40) return;
+
+      lastViewportHeight = currentHeight;
+
+      window.clearTimeout(viewportRefreshTimer);
+
+      viewportRefreshTimer = window.setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 180);
+    };
+
+    window.addEventListener("resize", handleViewportResize);
+    window.visualViewport?.addEventListener(
+      "resize",
+      handleViewportResize
+    );
+
     return () => {
+      window.removeEventListener("resize", handleViewportResize);
+      window.visualViewport?.removeEventListener(
+        "resize",
+        handleViewportResize
+      );
+
+      window.clearTimeout(viewportRefreshTimer);
       pointerCleanups.forEach((cleanup) => cleanup());
       ctx.revert();
     };
+
   }, []);
 
   const jumpTo = (index: number) => {
