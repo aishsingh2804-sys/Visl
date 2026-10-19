@@ -3731,3 +3731,26 @@ html, body { overflow-x: clip; }
     transition: color .45s ease, font-size .45s cubic-bezier(.22, .8, .24, 1) !important;
   }
 }
+
+
+/* MOBILE: Fill the available viewport and remove bottom whitespace */
+@media (max-width: 760px) {
+  .wf-section {
+    min-height: calc(100vh - 155px);
+    min-height: calc(100dvh - 155px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wf-pin {
+    flex: 1 0 auto;
+    height: auto;
+    min-height: calc(100dvh - 155px);
+    box-sizing: border-box;
+  }
+
+  .wf-track-viewport {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+}
