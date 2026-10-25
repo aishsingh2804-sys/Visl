@@ -1,0 +1,807 @@
+/* ==========================================================================
+   VISL 25 FOUNDING CREATORS PROGRAM - LIGHT THEME (SITE-NATIVE)
+   Playful GSAP Showcase Inspired Motion with Clean Light Aesthetics
+   ========================================================================== */
+
+.visl25-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--ink, #f3f7fc);
+  color: var(--text, #122a4a);
+  font-family: var(--ff-body, 'Inter', system-ui, -apple-system, sans-serif);
+  overflow-x: hidden;
+  padding-bottom: 100px;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   1. BACKGROUND AMBIENCE, 3 FLOATING STAT WIDGETS & 42 FUNKY SVGS
+   ────────────────────────────────────────────────────────────────────────── */
+.visl25-ambient-decor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.visl25-light-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.visl25-light-glow-1 {
+  width: 550px;
+  height: 550px;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(73, 128, 255, 0.16) 0%, rgba(200, 225, 255, 0.2) 50%, transparent 75%);
+}
+
+.visl25-light-glow-2 {
+  width: 600px;
+  height: 600px;
+  top: 45%;
+  right: -100px;
+  background: radial-gradient(circle, rgba(49, 87, 213, 0.1) 0%, transparent 70%);
+}
+
+.visl25-light-glow-3 {
+  width: 500px;
+  height: 500px;
+  bottom: 5%;
+  left: -80px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+}
+
+/* 3 Floating Stat Micro-Widgets */
+.v25-ambient-widget {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(36, 90, 196, 0.18);
+  border-radius: 999px;
+  box-shadow:
+    0 8px 24px -4px rgba(36, 90, 196, 0.1),
+    0 2px 6px rgba(18, 42, 74, 0.04);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #173b73;
+  white-space: nowrap;
+  will-change: transform;
+  z-index: 1;
+}
+
+.v25-amb-widget-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #245ac4;
+  box-shadow: 0 0 6px rgba(36, 90, 196, 0.4);
+}
+
+.v25-amb-widget-1 {
+  top: 220px;
+  right: 5%;
+}
+
+.v25-amb-widget-2 {
+  top: 470px;
+  left: 4%;
+}
+
+.v25-amb-widget-3 {
+  top: 800px;
+  right: 5%;
+}
+
+/* 42 Funky Floating SVGs distributed across the background */
+.v25-ambient-svg {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  color: rgba(36, 90, 196, 0.28);
+  will-change: transform;
+  z-index: 1;
+}
+
+.v25-svg-1 { top: 90px; left: 4%; }
+.v25-svg-2 { top: 150px; right: 4%; color: rgba(245, 158, 11, 0.35); }
+.v25-svg-3 { top: 290px; left: 5%; color: rgba(73, 128, 255, 0.32); }
+.v25-svg-4 { top: 380px; right: 3%; color: rgba(16, 185, 129, 0.32); }
+.v25-svg-5 { top: 540px; left: 3%; color: rgba(245, 158, 11, 0.35); }
+.v25-svg-6 { top: 640px; right: 4%; color: rgba(36, 90, 196, 0.3); }
+.v25-svg-7 { top: 730px; left: 4%; color: rgba(124, 58, 237, 0.3); }
+.v25-svg-8 { top: 880px; right: 4%; color: rgba(36, 90, 196, 0.26); }
+.v25-svg-9 { top: 990px; left: 5%; color: rgba(73, 128, 255, 0.28); }
+.v25-svg-10 { top: 1110px; right: 3%; color: rgba(245, 158, 11, 0.32); }
+.v25-svg-11 { top: 1230px; left: 4%; color: rgba(36, 90, 196, 0.3); }
+.v25-svg-12 { top: 1340px; right: 5%; color: rgba(124, 58, 237, 0.25); }
+.v25-svg-13.v25-floating-genre-tag {
+  top: 1470px;
+  left: 4%;
+  padding: 5px 14px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(36, 90, 196, 0.18);
+  border-radius: 999px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #245ac4;
+  box-shadow: 0 4px 14px rgba(36, 90, 196, 0.08);
+}
+.v25-svg-14 { top: 1580px; right: 4%; color: rgba(16, 185, 129, 0.3); }
+.v25-svg-15 { top: 1700px; left: 5%; color: rgba(36, 90, 196, 0.3); }
+
+/* Additional SVGs: fill the visual gaps without crowding the central copy */
+.v25-svg-16 { top: 210px; left: 17%; color: rgba(124, 58, 237, 0.25); }
+.v25-svg-17 { top: 250px; right: 17%; color: rgba(36, 90, 196, 0.25); }
+.v25-svg-18 { top: 430px; left: 16%; color: rgba(245, 158, 11, 0.30); }
+.v25-svg-19 { top: 500px; right: 15%; color: rgba(73, 128, 255, 0.30); }
+.v25-svg-20 { top: 680px; left: 17%; color: rgba(16, 185, 129, 0.28); }
+.v25-svg-21 { top: 770px; right: 16%; color: rgba(124, 58, 237, 0.26); }
+.v25-svg-22 { top: 930px; left: 16%; color: rgba(36, 90, 196, 0.26); }
+.v25-svg-23 { top: 1050px; right: 16%; color: rgba(16, 185, 129, 0.28); }
+.v25-svg-24 { top: 1170px; left: 17%; color: rgba(245, 158, 11, 0.30); }
+.v25-svg-25 { top: 1290px; right: 16%; color: rgba(73, 128, 255, 0.28); }
+.v25-svg-26 { top: 1510px; left: 17%; color: rgba(124, 58, 237, 0.24); }
+.v25-svg-27 { top: 1640px; right: 16%; color: rgba(36, 90, 196, 0.28); }
+
+/* More decorative SVGs for a richer, evenly distributed ambient field */
+.v25-svg-28 { top: 120px; left: 28%; color: rgba(36, 90, 196, 0.22); }
+.v25-svg-29 { top: 330px; right: 28%; color: rgba(245, 158, 11, 0.28); }
+.v25-svg-30 { top: 360px; left: 29%; color: rgba(16, 185, 129, 0.24); }
+.v25-svg-31 { top: 590px; right: 27%; color: rgba(124, 58, 237, 0.24); }
+.v25-svg-32 { top: 610px; left: 28%; color: rgba(73, 128, 255, 0.26); }
+.v25-svg-33 { top: 820px; right: 28%; color: rgba(245, 158, 11, 0.27); }
+.v25-svg-34 { top: 860px; left: 29%; color: rgba(36, 90, 196, 0.23); }
+.v25-svg-35 { top: 1010px; right: 28%; color: rgba(16, 185, 129, 0.25); }
+.v25-svg-36 { top: 1130px; left: 28%; color: rgba(124, 58, 237, 0.23); }
+.v25-svg-37 { top: 1360px; right: 28%; color: rgba(36, 90, 196, 0.24); }
+.v25-svg-38 { top: 1410px; left: 28%; color: rgba(245, 158, 11, 0.26); }
+.v25-svg-39 { top: 1550px; right: 28%; color: rgba(16, 185, 129, 0.23); }
+.v25-svg-40 { top: 1760px; left: 28%; color: rgba(73, 128, 255, 0.24); }
+.v25-svg-41 { top: 1830px; right: 28%; color: rgba(124, 58, 237, 0.22); }
+.v25-svg-42 { top: 1960px; left: 17%; color: rgba(36, 90, 196, 0.22); }
+
+/* Scroll-driven ribbon: a playful, gradient trail that reveals as the page moves */
+.visl25-guiding-line-canvas {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+}
+.visl25-guiding-line-glow {
+  opacity: 0.07;
+  filter: blur(7px);
+}
+.visl25-guiding-line {
+  filter: drop-shadow(0 0 5px rgba(67, 135, 255, 0.28));
+}
+50% { transform: scale(1.2); opacity: 1; }
+}
+
+.visl25-container {
+  position: relative;
+  z-index: 2;
+  width: min(960px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   BLUE GRADIENT SHIMMER ON STATIC TEXT (GSAP SHOWCASE INSPIRATION)
+   ────────────────────────────────────────────────────────────────────────── */
+.v25-gradient-shimmer {
+  background: linear-gradient(
+    90deg,
+    #122a4a 0%,
+    #245ac4 25%,
+    #3b82f6 50%,
+    #245ac4 75%,
+    #122a4a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: v25-text-shimmer 5s linear infinite;
+  display: inline-block;
+}
+
+@keyframes v25-text-shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   HEADER SECTION
+   ────────────────────────────────────────────────────────────────────────── */
+.visl25-header {
+  position: relative;
+  padding: 64px 0 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Badge: "ONLY 25 SEATS" */
+.visl25-badge-box {
+  margin-bottom: 22px;
+  display: inline-flex;
+  cursor: default;
+}
+
+.visl25-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 18px;
+  background: #ffffff;
+  border: 1px solid rgba(36, 90, 196, 0.22);
+  border-radius: 999px;
+  box-shadow:
+    0 4px 16px rgba(36, 90, 196, 0.08),
+    0 0 12px rgba(73, 128, 255, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.visl25-badge:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 22px rgba(36, 90, 196, 0.14),
+    0 0 18px rgba(73, 128, 255, 0.2);
+}
+
+.visl25-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #245ac4;
+  box-shadow: 0 0 8px rgba(36, 90, 196, 0.5);
+  animation: v25-dot-pulse 2s infinite ease-in-out;
+}
+
+@keyframes v25-dot-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.4); opacity: 1; }
+}
+
+.visl25-badge-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #245ac4;
+  text-transform: uppercase;
+}
+
+/* Title: "VISL 25 FOUNDING CREATORS PROGRAM" */
+.visl25-title-wrap {
+  max-width: 920px;
+  margin: 0 auto 18px;
+  perspective: 1000px;
+}
+
+.visl25-main-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(34px, 5.6vw, 68px);
+  font-weight: 900;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  color: #122a4a;
+  margin: 0;
+  text-wrap: balance;
+}
+
+/* Subheadline: "Your stories deserve more than 60 seconds." */
+.visl25-subheadline {
+  max-width: 720px;
+  margin: 0 auto 16px;
+  font-family: var(--ff-display, 'Cormorant', Georgia, serif);
+  font-style: italic;
+  font-size: clamp(24px, 3.2vw, 36px);
+  line-height: 1.25;
+  color: #245ac4;
+  font-weight: 600;
+}
+
+/* Description: "25 founding seats for storytellers & AI creators building long-form stories." */
+.visl25-description {
+  max-width: 620px;
+  margin: 0 auto 32px;
+  font-size: clamp(15.5px, 1.8vw, 18px);
+  line-height: 1.6;
+  color: var(--muted, #5f7693);
+}
+
+/* Hero Apply CTA Button */
+.visl25-hero-btn-wrap {
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.visl25-apply-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 36px;
+  background: #245ac4;
+  color: #ffffff;
+  border: 1px solid #245ac4;
+  border-radius: 999px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow:
+    0 8px 24px rgba(36, 90, 196, 0.28),
+    0 2px 6px rgba(36, 90, 196, 0.16);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.visl25-apply-btn:hover {
+  background: #194ba9;
+  border-color: #194ba9;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 12px 30px rgba(36, 90, 196, 0.38),
+    0 4px 10px rgba(36, 90, 196, 0.2);
+}
+
+.visl25-btn-arrow {
+  display: inline-block;
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.visl25-apply-btn:hover .visl25-btn-arrow {
+  transform: translateX(4px);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   2. BENEFITS SECTION: "25 seats. Here's what you get."
+   Clean, Large Bold High-Impact Numerical Typography (No highlight tags)
+   ────────────────────────────────────────────────────────────────────────── */
+.visl25-benefits-section {
+  position: relative;
+  padding: 48px 0 20px;
+}
+
+.visl25-benefits-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.visl25-benefits-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  color: #122a4a;
+  margin: 0 0 10px;
+}
+
+/* Stacking Benefits Container */
+.visl25-cards-stack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+/* Individual Benefit Card with High-Impact Typography */
+.visl25-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(36, 90, 196, 0.14);
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow:
+    0 8px 24px -4px rgba(36, 90, 196, 0.08),
+    0 2px 8px rgba(18, 42, 74, 0.04);
+  display: grid;
+  grid-template-columns: minmax(205px, max-content) minmax(0, 1fr);
+  align-items: center;
+  gap: 32px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  will-change: transform;
+}
+
+.visl25-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(36, 90, 196, 0.32);
+  box-shadow:
+    0 18px 40px -6px rgba(36, 90, 196, 0.14),
+    0 4px 12px rgba(18, 42, 74, 0.06);
+}
+
+/* Left Stat Column */
+.visl25-card-stat-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+  border-right: 1px solid rgba(36, 90, 196, 0.12);
+  padding-right: 24px;
+}
+
+.visl25-stat-huge {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(32px, 3.8vw, 46px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  color: #245ac4;
+  margin-bottom: 6px;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  font-variant-numeric: tabular-nums;
+  flex: 0 0 auto;
+  will-change: transform;
+}
+
+.visl25-stat-sublabel {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5f7693;
+}
+
+/* Right Content Column */
+.visl25-card-body-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.visl25-card-num-badge {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #245ac4;
+  background: rgba(36, 90, 196, 0.08);
+  padding: 3px 9px;
+  border-radius: 6px;
+  width: fit-content;
+  margin-bottom: 4px;
+}
+
+.visl25-card-statement {
+  font-family: var(--ff-display, 'Cormorant', Georgia, serif);
+  font-size: clamp(19px, 2.15vw, 23px);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #122a4a;
+}
+
+.visl25-card-statement strong {
+  font-weight: 800;
+  color: #0f274a;
+}
+
+/* Footer Tag: "KIDS MYTHOLOGY HISTORY MICRODRAMAS — Storytellers & AI creators welcome" */
+.visl25-footer-tag-wrap {
+  max-width: 840px;
+  margin: 36px auto 0;
+  text-align: center;
+}
+
+.visl25-footer-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: #ffffff;
+  border: 1px solid rgba(36, 90, 196, 0.16);
+  border-radius: 999px;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(12px, 1.5vw, 13.5px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #1e3a8a;
+  box-shadow: 0 4px 14px rgba(36, 90, 196, 0.06);
+  flex-wrap: wrap;
+}
+
+.visl25-footer-tag span.genres {
+  color: #245ac4;
+  font-weight: 800;
+}
+
+.visl25-footer-tag span.divider {
+  color: #94a3b8;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   APPLY CTA BOX
+   ────────────────────────────────────────────────────────────────────────── */
+.visl25-cta-section {
+  position: relative;
+  padding: 44px 0 20px;
+}
+
+.visl25-cta-box {
+  position: relative;
+  max-width: 840px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1.5px solid rgba(36, 90, 196, 0.22);
+  border-radius: 24px;
+  padding: clamp(36px, 5vw, 56px) clamp(24px, 4vw, 48px);
+  text-align: center;
+  box-shadow:
+    0 16px 40px -10px rgba(36, 90, 196, 0.12),
+    0 0 24px rgba(73, 128, 255, 0.08);
+}
+
+.visl25-cta-headline {
+  font-family: var(--ff-display, 'Cormorant', Georgia, serif);
+  font-size: clamp(32px, 4.2vw, 50px);
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  color: #122a4a;
+  margin: 0 0 12px;
+}
+
+.visl25-cta-sub {
+  font-size: clamp(15px, 1.8vw, 17px);
+  color: var(--muted, #5f7693);
+  max-width: 580px;
+  margin: 0 auto 30px;
+  line-height: 1.55;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   RESPONSIVE DESIGN (AUTOMATICALLY HIDE AMBIENT WIDGETS & SVGS ON MOBILE)
+   ────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .v25-ambient-widget,
+  .v25-ambient-svg {
+    display: none !important;
+  }
+  .visl25-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 22px 24px;
+  }
+  .visl25-stat-huge {
+    font-size: clamp(30px, 7vw, 42px);
+  }
+  .visl25-card-stat-col {
+    border-right: none;
+    border-bottom: 1px solid rgba(36, 90, 196, 0.1);
+    padding-right: 0;
+    padding-bottom: 12px;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 720px) {
+  .visl25-header {
+    padding: 44px 0 36px;
+  }
+  .visl25-footer-tag {
+    border-radius: 16px;
+    padding: 12px 16px;
+  }
+  .visl25-cta-box {
+    padding: 32px 20px;
+  }
+}
+
+
+/* Founding-seat CTA: letter choreography with SVGs anchored to the card */
+.v25-seat-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(67, 135, 255, .12), transparent 55%),
+    #fff;
+}
+.v25-seat-cta > *:not(.v25-cta-orbit-art) {
+  position: relative;
+  z-index: 2;
+}
+.v25-letter-headline {
+  position: relative;
+  z-index: 2;
+  perspective: 700px;
+  font-family: var(--ff-display, 'Cormorant', Georgia, serif);
+  font-style: italic;
+  font-weight: 700;
+}
+.v25-letter-word { display: inline; white-space: nowrap; }
+.v25-letter {
+  display: inline-block;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+.v25-letter-space { white-space: pre; }
+.v25-letter-number {
+  display: inline-block;
+  color: #245ac4;
+  text-shadow: 0 4px 0 rgba(36, 90, 196, .1);
+}
+/* The shimmer background cannot paint individually split glyphs reliably; give each letter its own visible fill. */
+.v25-letter-gradient-glyph {
+  color: #245ac4;
+  -webkit-text-fill-color: #245ac4;
+  background: none;
+  text-shadow: 0 1px 0 rgba(36, 90, 196, .05);
+}
+.v25-letter-headline .v25-letter-word:last-child {
+  white-space: nowrap;
+}
+.v25-letter-headline {
+  max-width: 100%;
+  line-height: 1.2;
+  overflow: visible;
+  text-wrap: balance;
+}
+
+.v25-cta-orbit-art {
+  position: absolute !important;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1 !important;
+}
+.v25-cta-orbit-art svg {
+  position: absolute;
+  display: block;
+  height: auto;
+  overflow: visible;
+}
+.v25-cta-orbit {
+  width: clamp(72px, 9vw, 118px) !important;
+  height: auto !important;
+  top: 10%;
+  right: 7%;
+  color: #4387ff;
+  opacity: .7;
+  transform-origin: 50% 50%;
+}
+.v25-cta-spark {
+  width: 28px !important;
+  height: 28px !important;
+}
+.v25-cta-spark-a { top: 18%; left: 8%; }
+.v25-cta-spark-b { right: 13%; bottom: 18%; width: 22px !important; height: 22px !important; }
+.v25-cta-film-doodle {
+  width: 62px !important;
+  height: 48px !important;
+  left: 7%;
+  bottom: 15%;
+  color: #245ac4;
+  opacity: .78;
+  transform-origin: 50% 50%;
+}
+@media (max-width: 650px) {
+  .v25-cta-orbit { width: 60px !important; top: 5%; right: 3%; opacity: .4; }
+  .v25-cta-spark-a { top: 10%; left: 3%; width: 20px !important; height: 20px !important; }
+  .v25-cta-spark-b { right: 5%; bottom: 10%; width: 17px !important; height: 17px !important; }
+  .v25-cta-film-doodle { width: 44px !important; height: 34px !important; left: 3%; bottom: 8%; }
+}
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .v25-letter { will-change: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v25-cta-orbit, .v25-cta-spark, .v25-cta-film-doodle { animation: none !important; }
+  .v25-letter { will-change: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visl25-page *,
+  .visl25-page *::before,
+  .visl25-page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+
+
+
+/* The guiding ribbon is a background layer; content cards always sit above it. */
+.visl25-container > section,
+.visl25-container > .visl25-cta-box,
+.visl25-container .visl25-card,
+.visl25-container .v25-seat-cta {
+  position: relative;
+  z-index: 1;
+}
+.visl25-guiding-line-canvas { z-index: 0 !important; }
+.visl25-guiding-line-glow { pointer-events: none; }
+
+/* Slow, low-amplitude ambient floating: gentle drift, never rapid back-and-forth. */
+@keyframes v25-ambient-float-a {
+  0% { transform: translate3d(0, 0, 0) rotate(-2deg); }
+  50% { transform: translate3d(7px, -10px, 0) rotate(1deg); }
+  100% { transform: translate3d(-4px, 5px, 0) rotate(3deg); }
+}
+@keyframes v25-ambient-float-b {
+  0% { transform: translate3d(0, 0, 0) rotate(2deg); }
+  50% { transform: translate3d(-8px, 7px, 0) rotate(-1deg); }
+  100% { transform: translate3d(4px, -8px, 0) rotate(-3deg); }
+}
+.visl25-ambient-decor .v25-ambient-drift {
+  animation: v25-ambient-float-a 9s ease-in-out infinite alternate !important;
+  transition: none;
+  will-change: transform;
+}
+.visl25-ambient-decor .v25-ambient-drift:nth-of-type(3n) {
+  animation-name: v25-ambient-float-b;
+  animation-duration: 11.5s;
+  animation-delay: -3s;
+}
+.visl25-ambient-decor .v25-ambient-drift:nth-of-type(3n + 1) {
+  animation-duration: 13s;
+  animation-delay: -6s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .visl25-ambient-decor .v25-ambient-drift { animation: none !important; }
+}
+
+/* Bring the orbit into the "Seats" headline */
+.v25-cta-orbit {
+  right: 19% !important;
+  top: 10% !important;
+  width: clamp(74px, 8vw, 100px) !important;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.v25-letter-headline {
+  position: relative;
+  z-index: 2;
+}
+
+/* Keep the circle behind the final letters */
+.v25-cta-orbit-art {
+  z-index: 1;
+  pointer-events: none;
+}

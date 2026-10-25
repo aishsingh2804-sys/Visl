@@ -27,7 +27,7 @@ export const pricingPlans: PricingPlan[] = [
     price: "$0",
     period: "",
     description: "Explore Visl and bring your first ideas to life.",
-    buttonLabel: "Start for Free",
+    buttonLabel: "Coming Soon",
     features: [
       feature("Max video length: 30 sec", true),
       feature("Monthly credits: 300", true),
@@ -52,7 +52,7 @@ export const pricingPlans: PricingPlan[] = [
     price: "$25",
     period: "/month",
     description: "For creators getting started with AI video.",
-    buttonLabel: "Choose Starter",
+    buttonLabel: "Coming Soon",
     features: [
       feature("Max video length: 3 min", true),
       feature("Monthly credits: 2,500", true),
@@ -79,7 +79,7 @@ export const pricingPlans: PricingPlan[] = [
     description: "For creators producing videos consistently.",
     badge: "Most Popular",
     featured: true,
-    buttonLabel: "Choose Creator",
+    buttonLabel: "Coming Soon",
     features: [
       feature("Max video length: 5 min", true),
       feature("Monthly credits: 6,000", true),
@@ -104,7 +104,7 @@ export const pricingPlans: PricingPlan[] = [
     price: "$150",
     period: "/month",
     description: "For professional creators scaling production.",
-    buttonLabel: "Choose Pro",
+    buttonLabel: "Coming Soon",
     features: [
       feature("Max video length: 10 min", true),
       feature("Monthly credits: 15,000", true),
@@ -129,7 +129,7 @@ export const pricingPlans: PricingPlan[] = [
     price: "$250",
     period: "/month",
     description: "For teams and businesses producing at scale.",
-    buttonLabel: "Choose Business",
+    buttonLabel: "Coming Soon",
     features: [
       feature("Max video length: 10 min", true),
       feature("Monthly credits: 25,000", true),

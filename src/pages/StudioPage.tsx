@@ -14,7 +14,7 @@ export function StudioPage() {
     if (initialPrompt) setPrompt(initialPrompt);
   }, [location.search]);
 
-  const startCreating = () => navigate(ROUTES.LOGIN);
+  const startCreating = () => navigate(ROUTES.VISL_25);
 
   const handlePromptKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === 'Enter' && !event.shiftKey) {

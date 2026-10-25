@@ -21,7 +21,7 @@ export function Vivi25Banner() {
 
         {/* RIGHT — CTA */}
         <Link
-          to={ROUTES.CONTACT}
+          to={ROUTES.VISL_25}
           className="vivi25-apply"
         >
           <span>Apply now</span>

@@ -47,7 +47,7 @@ export function PricingPage() {
           <li className="dim">Multi-language dubbing</li>
           <li className="dim">API access</li>
         </ul>
-        <button className="btn-plan btn-plan-outline">Start for free</button>
+        <button className="btn-plan btn-plan-outline btn-plan-disabled" disabled aria-disabled="true" tabIndex={-1}>Coming Soon</button>
       </div>
       <div className="price-card featured">
         <div className="price-badge">Most popular</div>
@@ -65,7 +65,7 @@ export function PricingPage() {
           <li className="dim">Multi-language dubbing</li>
           <li className="dim">API access</li>
         </ul>
-        <button className="btn-plan btn-plan-fill">Get Creator</button>
+        <button className="btn-plan btn-plan-fill btn-plan-disabled" disabled aria-disabled="true" tabIndex={-1}>Coming Soon</button>
       </div>
       <div className="price-card">
         <div className="price-tier">Pro</div>
@@ -83,7 +83,7 @@ export function PricingPage() {
           <li>API access</li>
           <li>Dedicated support</li>
         </ul>
-        <button className="btn-plan btn-plan-outline">Get Pro</button>
+        <button className="btn-plan btn-plan-outline btn-plan-disabled" disabled aria-disabled="true" tabIndex={-1}>Coming Soon</button>
       </div>
     </div>
     <p style={{ textAlign: 'center', marginTop: '14px', fontSize: '12px', color: 'var(--muted)' } as CSSProperties}>All prices in INR. Annual plans billed upfront. USD pricing available on request.</p>

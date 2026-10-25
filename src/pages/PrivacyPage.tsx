@@ -123,7 +123,7 @@ const AUTOMATED_ROWS: string[][] = [
   [
     '2',
     'Age check at sign-up',
-    'Refuse an account if your year of birth shows you are under 18',
+    'Refuse an account if you do not confirm that you are 18 or older',
     'Legitimate interests',
   ],
   [
@@ -379,7 +379,7 @@ export function PrivacyPage() {
                 </div>
 
                 <Clause label="b." title="Sign-in and connected platform accounts.">
-                  You can sign in with Google or TikTok. You can also connect your YouTube channel, your Instagram professional account and your TikTok account (each a &quot;<Term>Connected Account</Term>&quot;; together, the &quot;<Term>Platforms</Term>&quot;) to publish videos you create in Visl AI. This section describes what we collect when you do, and how we use, share, keep and delete it. If you sign in with Google, we also receive your email address.
+                  You can sign in with Google. You can also connect your YouTube channel, your Instagram professional account and your TikTok account (each a &quot;<Term>Connected Account</Term>&quot;; together, the &quot;<Term>Platforms</Term>&quot;) to publish videos you create in Visl AI. This section describes what we collect when you do, and how we use, share, keep and delete it. If you sign in with Google, we also receive your email address.
                 </Clause>
                 <div className="legal-sub">
                   <p>
@@ -389,7 +389,7 @@ export function PrivacyPage() {
                     <Lead>Information we collect</Lead>
                   </p>
                   <ul className="legal-list">
-                    <li><Lead>YouTube:</Lead> your channel ID, channel name, handle and profile picture, and your authorisation for Visl AI to upload videos to your channel and to read your channel&apos;s basic details.</li>
+                    <li><Lead>YouTube:</Lead> your channel ID, channel name, handle and profile picture, and your authorisation for Visl AI to upload videos to your channel, to read your channel&apos;s basic details and, if you choose to publish subtitles as a caption track, to add that caption track to the video you publish.</li>
                     <li><Lead>Instagram:</Lead> your Instagram account ID, username, display name, profile picture and account type, and your authorisation for Visl AI to publish Reels to your account.</li>
                     <li><Lead>TikTok:</Lead> your TikTok account ID, display name, username and profile picture, and your authorisation for Visl AI to post videos to your account. Each time you publish to TikTok, we also retrieve the posting options available to your account (the permitted privacy settings, whether comments, Duets and Stitches may be enabled, and the maximum video length) so we can show them to you.</li>
                     <li><Lead>Access tokens:</Lead> the access credentials each Platform issues to Visl AI. We store them in encrypted form.</li>
@@ -574,7 +574,7 @@ export function PrivacyPage() {
                 <h2>6. Cookies and Similar Technologies</h2>
                 <p>We use two kinds of cookies and similar technologies.</p>
                 <Clause label="a." title="Strictly necessary.">
-                  These keep you signed in, protect the Services from attacks and misuse, control access to the private content you create, balance load across our servers, and complete your payments. We also use your browser&apos;s local storage to keep you signed in and remember your choices. Our payment provider Razorpay may also set its own cookies on the payment page, including for fraud prevention and one that remembers your details across sites. These do not need your consent, and blocking them may stop you from signing in, viewing your content or paying.
+                  These keep you signed in, protect the Services from attacks and misuse, control access to the private content you create, balance load across our servers, and complete your payments. We also use your browser&apos;s local storage and session storage to keep you signed in and to remember your choices, such as your display theme, layout and notification settings. Our payment provider Razorpay may also set its own cookies on the payment page, including for fraud prevention and one that remembers your details across sites. These do not need your consent, and blocking them may stop you from signing in, viewing your content or paying.
                 </Clause>
                 <Clause label="b." title="Analytics.">
                   To understand how users interact with the Services, including which features are used, how often and for how long, so that we can identify issues and improve the user experience.
@@ -722,7 +722,7 @@ export function PrivacyPage() {
               <div className="legal-section" id="privacy-11">
                 <h2>11. Children&apos;s Data</h2>
                 <p>
-                  The Services are for adults. You must be at least <Key>18</Key> years old to use them, and we do not knowingly collect personal data from anyone under 18. We take your confirmation that you are 18 years or above during sign-up. Please do not upload photos, video or recordings of anyone under 18. Our Acceptable Use Policy and Child Safety Policy prohibit it.
+                  The Services are for adults. You must be at least <Key>18</Key> years old to use them, and we do not knowingly collect personal data from anyone under 18. When you sign up, you confirm that you are 18 or older. Please do not upload photos, video or recordings of anyone under 18. Our Acceptable Use Policy and Child Safety Policy prohibit it.
                 </p>
                 <p>
                   If we learn that we have collected personal data from a person under 18, or have processed a child&apos;s image or voice, we will delete it promptly, except where we must preserve material under our Child Safety Policy. If you believe a child has used the Services or appears in content, contact <Mail />.
@@ -827,7 +827,7 @@ export function PrivacyPage() {
                 <Clause label="c." title="India" />
                 <div className="legal-sub">
                   <Clause label="i." title="Data fiduciary.">
-                    Big Bets Private Limited (CIN <span className="legal-chip">U73100DL2022PTC394224</span>), <span className="legal-address">3/28 Top Floor Shanti Niketan, South Moti Bagh, New Delhi – 110021</span>, is the data fiduciary under the Digital Personal Data Protection Act 2023.
+                    Big Bets Private Limited (CIN <span className="legal-chip">U73100DL2022PTC394224</span>), <span className="legal-address">3/28, Top Floor, Shanti Niketan, South Moti Bagh, New Delhi – 110021</span>, is the data fiduciary under the Digital Personal Data Protection Act 2023.
                   </Clause>
                   <Clause label="ii." title="Consent.">
                     We ask for your consent separately for training on your text and for face and voice data (Sections <Sec n={2}>2(d)</Sec> and <Sec n={3}>3(b)</Sec>). You can ask for this notice in English or in any language listed in the Eighth Schedule to the Constitution of India. You can withdraw consent at any time (<Sec n={9}>Section 9</Sec>). Face and voice data is handled as sensitive personal data, with your electronic written consent under the Information Technology Act and its rules.

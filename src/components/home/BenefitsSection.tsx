@@ -211,7 +211,7 @@ export function BenefitsSection() {
       <div className="benefits-inner">
         <div className="benefits-header">
           <div className="section-overline">
-            THE Visl ADVANTAGE
+            The Visl Advantage
           </div>
 
           <h2 className="benefits-heading">

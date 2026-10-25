@@ -5,7 +5,8 @@ import {
   useState,
 } from "react";
 import { createPortal } from "react-dom";
-import { GOOGLE_FORM_URL } from "../../constants";
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../lib/routes';
 import "./Animations.css";
 
 /* =========================================================
@@ -147,6 +148,7 @@ const getCategoryColor = (category: string): string =>
 ========================================================= */
 
 function Animations() {
+  const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] =
     useState(false);
@@ -484,12 +486,8 @@ function Animations() {
   ========================================================= */
 
   const startCreating = () => {
-  window.open(
-    GOOGLE_FORM_URL,
-    "_blank",
-    "noopener,noreferrer"
-  );
-};
+    navigate(ROUTES.VISL_25);
+  };
 
 
   /* =========================================================
@@ -514,7 +512,7 @@ function Animations() {
       <div className="vivi-showcase-header">
         <div>
           <div className="vivi-showcase-overline">
-            MADE WITH VISL
+            Made With Visl
           </div>
 
           <h2>

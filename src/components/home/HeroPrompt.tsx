@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-// import { ROUTES } from '../../lib/routes';
-import { GOOGLE_FORM_URL } from "../../constants";
+import { ROUTES } from '../../lib/routes';
+
 
 const DEMO_PROMPTS = [
   {
@@ -24,7 +24,7 @@ const DEMO_PROMPTS = [
 ];
 
 export function HeroPrompt() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [value, setValue] = useState('');
   const [promptIndex, setPromptIndex] = useState(0);
@@ -100,7 +100,7 @@ export function HeroPrompt() {
   };
 
   const handleStart = () => {
-  window.open(GOOGLE_FORM_URL, "_blank", "noopener,noreferrer");
+  navigate(ROUTES.VISL_25);
   };
 
   return (
