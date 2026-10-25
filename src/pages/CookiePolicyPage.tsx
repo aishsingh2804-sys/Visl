@@ -126,13 +126,13 @@ export function CookiePolicyPage() {
                       </tr>
                       <tr>
                         <td>Security token</td>
-                        <td>Us</td>
+                        <td>Amazon Cognito, on our sign-in page</td>
                         <td>Prevents forged requests</td>
-                        <td>[session; CP2]</td>
+                        <td>Session (deleted when you close your browser); one lasts up to 1 hour</td>
                       </tr>
                       <tr>
                         <td>Cookie choice</td>
-                        <td>Us</td>
+                        <td>Us, through CookieYes</td>
                         <td>Remembers your cookie choice</td>
                         <td>12 months</td>
                       </tr>
@@ -140,9 +140,9 @@ export function CookiePolicyPage() {
                         <td>Local storage items</td>
                         <td>Us</td>
                         <td>Keep you signed in and remember your settings</td>
-                        <td>—</td>
+                        <td>Until you sign out or clear your browser data</td>
                       </tr>
-                      <tr>
+                      {/* <tr>
                         <td>
                           CloudFront-Policy, CloudFront-Signature,
                           CloudFront-Key-Pair-Id
@@ -150,7 +150,7 @@ export function CookiePolicyPage() {
                         <td>Us, through Amazon CloudFront</td>
                         <td>Prove you may view your private videos and files</td>
                         <td>[duration; CP3]</td>
-                      </tr>
+                      </tr> */}
                       <tr>
                         <td>
                           Load-balancer and bot-protection cookies (such as
@@ -158,16 +158,16 @@ export function CookiePolicyPage() {
                         </td>
                         <td>Amazon Web Services</td>
                         <td>Spread traffic and block automated abuse</td>
-                        <td>[duration; CP4]</td>
+                        <td>Up to 7 days</td>
                       </tr>
                       <tr>
                         <td>Payment cookies</td>
                         <td>Razorpay</td>
                         <td>
-                          Complete your payment, detect fraud and remember your
-                          details, on the payment page only
+                          Complete your payment and detect fraud, on the payment page only and remember your
+                          details 
                         </td>
-                        <td>[duration; CP5]</td>
+                        <td>Set by Razorpay; see Razorpay&apos;s cookie policy</td>
                       </tr>
                     </tbody>
                   </table>
@@ -267,7 +267,7 @@ export function CookiePolicyPage() {
                     , CIN <span className="legal-chip">U73100DL2022PTC394224</span>
                     ,{' '}
                     <span className="legal-address">
-                      3/28 Top Floor, Shanti Niketan, South Moti Bagh, New Delhi
+                      3/28, Top Floor, Shanti Niketan, South Moti Bagh, New Delhi
                       – 110021, India
                     </span>
                     .

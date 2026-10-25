@@ -1,6 +1,5 @@
-// import { Link } from 'react-router-dom';
-// import { ROUTES } from '../../lib/routes';
-import { GOOGLE_FORM_URL } from '../../constants.ts';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../../lib/routes';
 import './WhyVivi.css';
 const features = [
   {
@@ -105,7 +104,7 @@ export function WhyVivi() {
     <section id="why-vivi" className="why-vivi">
       <div className="why-vivi-intro">
         <div className="why-vivi-overline">
-          WHY Visl
+          Why Visl
         </div>
         <h2>
           From idea to story.
@@ -254,16 +253,11 @@ window into a flooded city...
   <h3>{feature.title}</h3>
   <p>{feature.description}</p>
 
-  <a
-  href={GOOGLE_FORM_URL}
-  className="feature-create-btn"
-  target="_blank"
-  rel="noopener noreferrer"
->
+  <Link to={ROUTES.VISL_25} className="feature-create-btn">
   <span className="feature-btn-sparkle">✦</span>
   <span>Start Creating</span>
   <span className="feature-btn-arrow">↗</span>
-</a>
+              </Link>
 
   <div className="why-vivi-line" />
 </div>

@@ -108,7 +108,7 @@ export function TermsPage() {
                   (CIN <span className="legal-chip">U73100DL2022PTC394224</span>
                   ),{' '}
                   <span className="legal-address">
-                    3/28 T/F, Shanti Niketan, South Moti Bagh, New Delhi –
+                    3/28, Top Floor, Shanti Niketan, South Moti Bagh, New Delhi –
                     110021, India
                   </span>
                   , the company that provides Visl AI at{' '}

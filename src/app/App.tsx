@@ -1,7 +1,8 @@
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { SiteChrome } from '../components/SiteChrome';
-import { ROUTES } from '../lib/routes';
+import { ROUTES, SECTION_PATH_TO_ID } from '../lib/routes';
+import { scrollToSectionTarget } from '../lib/scroll';
 import { HomePage } from '../pages/HomePage'; 
 import { KidsPage } from '../pages/KidsPage'; 
 import { HistoryPage } from '../pages/HistoryPage'; 
@@ -13,7 +14,7 @@ import { HowToUsePage } from '../pages/HowToUsePage';
 import { BlogPage } from '../pages/BlogPage'; 
 import { ContactPage } from '../pages/ContactPage'; 
 import { CommunityPage } from '../pages/CommunityPage'; 
-import { PricingPage } from '../pages/PricingPage'; 
+// import { PricingPage } from '../pages/PricingPage'; 
 import { FAQPage } from '../pages/FAQPage'; 
 import { PrivacyPage } from '../pages/PrivacyPage'; 
 import { CreditsPage } from '../pages/CreditsPage'; 
@@ -21,15 +22,21 @@ import { TermsPage } from '../pages/TermsPage';
 import { RefundPage } from '../pages/RefundPage';
 import { LoginPage } from '../pages/LoginPage';
 import { SignupPage } from '../pages/SignupPage';
+import { Visl25Page } from '../pages/Visl25Page';
 // import { Vivi25Banner } from '../components/Vivi25Banner';
 import { Footer } from '../components/Footer';
 import ComingSoon from "../pages/ComingSoon";
 import { AcceptableUsePage } from '../pages/AcceptableUsePage';
 import { CookiePolicyPage } from '../pages/CookiePolicyPage';
 import { ChildPolicyPage } from '../pages/ChildPolicyPage';
+import { DataDeletionPage } from '../pages/DataDeletionPage';
 
 const titles: Record<string, string> = {
   [ROUTES.HOME]: 'Visl — AI Video Storytelling',
+  [ROUTES.HOW_IT_WORKS]: 'Visl — How It Works',
+  [ROUTES.EXPLORE]: 'Visl — Explore',
+  [ROUTES.FEATURES]: 'Visl — Features',
+  [ROUTES.BENEFITS]: 'Visl — Benefits',
   [ROUTES.KIDS]: 'Visl — Kids Stories',
   [ROUTES.HISTORY]: 'Visl — History Stories',
   [ROUTES.INDIA]: 'Visl — India Stories',
@@ -52,6 +59,8 @@ const titles: Record<string, string> = {
   [ROUTES.COMING_SOON]: 'Visl — Coming Soon',
   [ROUTES.COOKIES]: 'Visl — Cookie Policy',
   [ROUTES.CHILD_SAFETY]: 'Visl — Child Safety Policy',
+  [ROUTES.DATA_DELETION]: 'Visl — Data Deletion',
+  [ROUTES.VISL_25]: 'Visl 25 — Founding Creators Program',
 };
 
 function MetaTitle(){const {pathname}=useLocation(); const title=titles[pathname]??'Visl AI'; document.title=title; const description='Visl AI creates long-form videos with consistent characters and complete story arcs.'; let meta=document.querySelector('meta[name=description]') as HTMLMetaElement|null; if(!meta){meta=document.createElement('meta');meta.name='description';document.head.appendChild(meta);} meta.content=description; let canonical=document.querySelector('link[rel=canonical]') as HTMLLinkElement|null; if(!canonical){canonical=document.createElement('link');canonical.rel='canonical';document.head.appendChild(canonical);} canonical.href=window.location.origin+pathname; return null;}
@@ -62,6 +71,14 @@ function ScrollManager() {
     let frameId = 0;
 
     // Let React render the destination route before resolving the anchor.
+    const sectionId = SECTION_PATH_TO_ID[pathname];
+
+    if (sectionId) {
+      const cancelFn = scrollToSectionTarget(sectionId, true);
+      return () => {
+        if (cancelFn) cancelFn();
+      };
+    }
     frameId = window.requestAnimationFrame(() => {
       frameId = window.requestAnimationFrame(() => {
         if (hash) {
@@ -99,6 +116,26 @@ export function AppShell() {
       <Routes>
         <Route
           path={ROUTES.HOME}
+          element={<HomePage />}
+        />
+
+        <Route
+          path={ROUTES.HOW_IT_WORKS}
+          element={<HomePage />}
+        />
+
+        <Route
+          path={ROUTES.EXPLORE}
+          element={<HomePage />}
+        />
+
+        <Route
+          path={ROUTES.FEATURES}
+          element={<HomePage />}
+        />
+
+        <Route
+          path={ROUTES.BENEFITS}
           element={<HomePage />}
         />
 
@@ -154,7 +191,7 @@ export function AppShell() {
 
         <Route
           path={ROUTES.PRICING}
-          element={<PricingPage />}
+          element={<HomePage />}
         />
 
         <Route
@@ -184,6 +221,7 @@ export function AppShell() {
 <Route path={ROUTES.ACC} element={<AcceptableUsePage />} />
 
 <Route path={ROUTES.CHILD_SAFETY} element={<ChildPolicyPage />} />
+<Route path={ROUTES.DATA_DELETION} element={<DataDeletionPage />} />
         {/* AUTH */}
         <Route
           path={ROUTES.LOGIN}
@@ -199,6 +237,12 @@ export function AppShell() {
   path={ROUTES.COMING_SOON}
   element={<ComingSoon />}
 />
+
+        {/* VISL 25 FOUNDING CREATORS */}
+        <Route
+          path={ROUTES.VISL_25}
+          element={<Visl25Page />}
+        />
 
         <Route
           path="/404"

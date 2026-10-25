@@ -30,23 +30,22 @@
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  color: #173b73;
   text-decoration: none;
-  font-family: Georgia, serif;
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: -0.06em;
   line-height: 1;
-  transition: color 160ms ease, transform 160ms ease;
-}
-
-.vivi-navbar-logo span {
-  color: #245ac4;
+  transition: opacity 160ms ease, transform 160ms ease;
 }
 
 .vivi-navbar-logo:hover {
-  color: #245ac4;
+  opacity: 0.88;
   transform: translateY(-1px);
+}
+
+.vivi-navbar-logo-img {
+  height: 38px;
+  width: auto;
+  max-height: 42px;
+  display: block;
+  object-fit: contain;
 }
 
 /* MAIN NAVIGATION */
@@ -85,7 +84,8 @@
   transition: color 160ms ease, opacity 160ms ease;
 }
 
-.vivi-nav-link:hover {
+.vivi-nav-link:hover,
+.vivi-nav-link.active {
   color: #245ac4;
 }
 
@@ -143,6 +143,7 @@
 
 /* OFFSET ANCHOR TARGETS FOR THE STICKY NAVBAR */
 
+#Visl-workflow-showcase,
 #vivi-workflow,
 #why-vivi,
 #vivi-benefits,
@@ -238,8 +239,8 @@
     gap: 0;
   }
 
-  .vivi-navbar-logo {
-    font-size: 25px;
+  .vivi-navbar-logo-img {
+    height: 32px;
   }
 
   .vivi-mobile-menu-button {
@@ -309,4 +310,46 @@
   .vivi-navbar *::after {
     transition: none !important;
   }
+}
+
+
+/* VISL 25 NAV BADGE */
+.visl-25-nav-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 13px !important;
+  margin: 0 4px;
+  background: linear-gradient(135deg, rgba(36, 90, 196, 0.08), rgba(99, 102, 241, 0.14));
+  border: 1px solid rgba(79, 70, 229, 0.35);
+  border-radius: 999px;
+  color: #245ac4 !important;
+  font-weight: 700 !important;
+  font-size: 12.5px !important;
+  letter-spacing: 0.03em;
+  box-shadow: 0 0 16px rgba(79, 70, 229, 0.18);
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.visl-25-nav-highlight:hover,
+.visl-25-nav-highlight.active {
+  background: linear-gradient(135deg, #245ac4, #6366f1);
+  color: #ffffff !important;
+  border-color: transparent;
+  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.4);
+  transform: translateY(-1px);
+}
+
+.visl-25-nav-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00d2ff;
+  box-shadow: 0 0 8px #00d2ff;
+  animation: visl-nav-dot-pulse 1.8s infinite;
+}
+
+@keyframes visl-nav-dot-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.4); opacity: 1; }
 }
